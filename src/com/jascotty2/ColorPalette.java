@@ -165,6 +165,10 @@ public class ColorPalette {
         return (col1 == match1 && col2 == match2) || (col2 == match1 && col1 == match2);
     }
 
+    public static boolean colorMatch(DyeColor col1, DyeColor col2, DyeColor match1) {
+        return col1 == match1 || col2 == match1;
+    }
+
     public static DyeColor MixColors(byte col1, short col2) {
         return MixColors(col1, (byte) col2);
     }
@@ -184,7 +188,8 @@ public class ColorPalette {
      * @return result color data, or -1 if no change
      */
     public static DyeColor MixColors(byte col1, byte col2) {
-
+        // possible help:
+        //http://www.phy.ntnu.edu.tw/ntnujava/index.php?topic=39
         /*
          * order-depenedent:
          * white + color = color
@@ -192,14 +197,28 @@ public class ColorPalette {
          * brown + white = light gray
          * gray + white = light gray
          * purple + white = magenta ?
-         * teal + white = white ? or light blue ?
+         * teal + white = white (? or change to light blue ?)
          * blue + white = light blue
          * green + white = light green
          * red + white = pink
          * light color + white = white
-         *
+         * enything else given white not specified above becomes white
+         * pink + red = red
+         * light blue + blue = blue
+         * light gray + gray = gray
+         * light green + green = green
+         * magenta + purple = purple
+         * pink + magenta = magenta
+         * 
          *
          * any order:
+         * color + black = black
+         * gray + gray = black
+         * light gray + light gray = gray
+         * pink + pink = red
+         * magenta + magenta = purple
+         * light blue + light blue = blue
+         * light green + light green = green
          * orange + purple = red
          * cyan + purple = blue
          * yellow + blue = green
@@ -208,13 +227,15 @@ public class ColorPalette {
          * red + blue = purple
          * blue + green = teal
          * purple + pink = magenta
-         * pink + pink = red
-         * light gray + light gray = gray
-         * gray + gray = black
          * yellow + green = lime
          * gray + light color = brown
          * light gray + dark color = brown
          *
+         * and every comb not on this list becomes brown:
+         * blue + purple
+         * blue + magenta
+         * purple + red
+         * purple + pink
          */
         DyeColor color1 = DyeColor.valueOf(col1);
         DyeColor color2 = DyeColor.valueOf(col2);
@@ -286,7 +307,11 @@ public class ColorPalette {
             return DyeColor.MAGENTA;
         } else {
             // any order:
-            if (colorMatch(color1, color2, DyeColor.ORANGE, DyeColor.PURPLE)) {
+            if (colorMatch(color1, color2, DyeColor.BLACK)) {
+                if((color1==DyeColor.BLACK && color2!=DyeColor.BLACK)
+                        ||(color2==DyeColor.BLACK && color1!=DyeColor.BLACK))
+                return DyeColor.BLACK;
+            } else if (colorMatch(color1, color2, DyeColor.ORANGE, DyeColor.PURPLE)) {
                 // orange + purple = red
                 return DyeColor.RED;
             } else if (colorMatch(color1, color2, DyeColor.CYAN, DyeColor.PURPLE)) {
