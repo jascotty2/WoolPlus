@@ -1,0 +1,75 @@
+Wool Plus - Dye'ing made fun
+
+Woolplus is a simple easy to use mod that lets you dye wool in a more interesting manner than crafting. 
+Players holding wool can dye wool simply by right clicking. 
+You can mix colors just like the crafting combinations and there are additional combinations. 
+You can even make brown wool. 
+If you want to reset the dyed wools back to something like white, just apply white enough times to *bleach* it. 
+Black for example, will dye everything black.
+
+color combinations:
+
+ * order-dependent:
+ * white + color = color
+ * black + white = gray
+ * brown + white = light gray
+ * gray + white = light gray
+ * purple + white = magenta ?
+ * teal + white = white (? or change to light blue ?)
+ * blue + white = light blue
+ * green + white = light green
+ * red + white = pink
+ * light color + white = white
+ * enything else given white not specified above becomes white
+ * pink + red = red
+ * light blue + blue = blue
+ * light gray + gray = gray
+ * light green + green = green
+ * magenta + purple = purple
+ * pink + magenta = magenta
+ * 
+ *
+ * any order:
+ * color + black = black
+ * gray + gray = black
+ * light gray + light gray = gray
+ * pink + pink = red
+ * magenta + magenta = purple
+ * light blue + light blue = blue
+ * light green + light green = green
+ * orange + purple = red
+ * cyan + purple = blue
+ * yellow + blue = green
+ * yellow + red = orange
+ * red + white = pink
+ * red + blue = purple
+ * blue + green = teal
+ * purple + pink = magenta
+ * yellow + green = lime
+ * gray + light color = brown
+ * light gray + dark color = brown
+ *
+ * and every comb not on this list becomes brown:
+ * blue + purple
+ * blue + magenta
+ * purple + red
+ * purple + pink
+
+
+Version 1.3 - jascotty2
+reorganized code to remove unused / unnecessary variables & make it easier to add/change/remove color combinations
+added to / changed some of the original combinations
+
+nossr50:
+
+Version 1.2
+Removed the Stupidly Long Constructor
+
+Version 1.1
+Fixed bug removing all dye the player had if the stack was 2
+Lighter wool colors no longer turn Gray when mixed with Bonemeal
+Lighter wool colors now get bleached White by Bonemeal
+
+Version 1.0
+Releasing Woolplus
+
