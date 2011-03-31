@@ -3,24 +3,24 @@ package com.gmail.nossr50.woolplus;
 import com.jascotty2.ColorPalette;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerListener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-public class wPlayerListener extends PlayerListener {
+public class WPPlayerListener extends PlayerListener {
 
-    //private final woolplus plugin;
+    //private final WoolPlus plugin;
 
-    public wPlayerListener(woolplus instance) {
+    public WPPlayerListener(WoolPlus instance) {
         //plugin = instance;
     }
 
-    @Override
-    public void onPlayerItem(PlayerItemEvent event) {
+    @Override //public void onPlayerItem(PlayerItemEvent event) {
+    public void onPlayerInteract(PlayerInteractEvent event){ 
         Player player = event.getPlayer();
         ItemStack item = event.getPlayer().getItemInHand();
-        Block block = event.getBlockClicked();
+        Block block = event.getClickedBlock();//.getBlockClicked();
         if (block != null && item != null && isDye(item) && isWool(block)) {
             dyeWool(block, item, player);
         }

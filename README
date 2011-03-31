@@ -56,6 +56,11 @@ color combinations:
  * purple + pink
 
 
+Version 1.5 - jascotty2
+changed names to better conventions, removed unnesessary parts
+changed for 602 compatibility
+
+
 Version 1.4 - jascotty2
 reorganized code to remove unused / unnecessary variables & make it easier to add/change/remove color combinations
 added to / changed some of the original combinations
