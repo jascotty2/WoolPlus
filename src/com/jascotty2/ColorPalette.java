@@ -351,7 +351,8 @@ public class ColorPalette {
             else if (!(colorMatch(color1, color2, DyeColor.BLUE, DyeColor.PURPLE)
                     || colorMatch(color1, color2, DyeColor.BLUE, DyeColor.MAGENTA)
                     || colorMatch(color1, color2, DyeColor.PURPLE, DyeColor.RED)
-                    || colorMatch(color1, color2, DyeColor.PURPLE, DyeColor.PINK))) {
+                    || colorMatch(color1, color2, DyeColor.PURPLE, DyeColor.PINK)
+                    || colorMatch(color1, color2, DyeColor.DARK_GREEN, DyeColor.LIGHT_GREEN))) {
                 return DyeColor.BROWN;
             }
         }
